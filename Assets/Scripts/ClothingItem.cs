@@ -3,25 +3,32 @@ using UnityEngine;
 public class ClothingItem : MonoBehaviour
 {
     [Header("Настройки привязки")]
-    public Transform targetSlot; // Сюда в инспекторе перетащи слот (например Slot_Body)
-    public string sortingLayerName = "Clothing"; // Имя слоя, который ты создал
+    public Transform targetSlot;
+    public string sortingLayerName = "Clothing";
 
-    private bool isDragging = false;
+    [Tooltip("Порядок: Штаны(5), Кофта(10), Оружие(15)")]
+    public int priorityOrder = 10;
+
     private Vector3 offset;
     private Vector2 originalPosition;
     private SpriteRenderer spriteRenderer;
+    private Transform originalParent;
 
     void Start()
     {
         originalPosition = transform.position;
+        originalParent = transform.parent;
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Устанавливаем начальный вид
+        spriteRenderer.sortingLayerName = sortingLayerName;
+        spriteRenderer.sortingOrder = priorityOrder;
     }
 
     void OnMouseDown()
     {
-        isDragging = true;
         offset = transform.position - GetMouseWorldPos();
-        spriteRenderer.sortingOrder = 100; // Поднимаем вещь над всем, пока несем
+        spriteRenderer.sortingOrder = 100; // Поднимаем над всем при переносе
     }
 
     void OnMouseDrag()
@@ -31,12 +38,9 @@ public class ClothingItem : MonoBehaviour
 
     void OnMouseUp()
     {
-        isDragging = false;
-
-        // Проверяем расстояние до слота
         float distance = Vector2.Distance(transform.position, targetSlot.position);
 
-        if (distance < 1.0f) // Если бросили рядом со слотом
+        if (distance < 1.0f)
         {
             SnapToCharacter();
         }
@@ -51,14 +55,14 @@ public class ClothingItem : MonoBehaviour
         transform.position = targetSlot.position;
         transform.SetParent(targetSlot);
         spriteRenderer.sortingLayerName = sortingLayerName;
-        spriteRenderer.sortingOrder = 10; // Порядок внутри слоя
+        spriteRenderer.sortingOrder = priorityOrder;
     }
 
     void ReturnToInventory()
     {
-        transform.SetParent(null);
+        transform.SetParent(originalParent);
         transform.position = originalPosition;
-        spriteRenderer.sortingOrder = 1;
+        spriteRenderer.sortingOrder = priorityOrder;
     }
 
     Vector3 GetMouseWorldPos()

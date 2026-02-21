@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 842592167}
   sortingLayerName: Clothing
+  priorityOrder: 10
 --- !u!61 &218001189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -501,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 1437892591}
   sortingLayerName: Clothing
+  priorityOrder: 10
 --- !u!61 &509790751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -763,6 +765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 1214864678}
   sortingLayerName: Clothing
+  priorityOrder: 9
 --- !u!61 &524820617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -897,11 +900,11 @@ RectTransform:
   m_Children:
   - {fileID: 1431900990}
   - {fileID: 509790749}
+  - {fileID: 218001187}
+  - {fileID: 524820613}
+  - {fileID: 1778389765}
   - {fileID: 1533149784}
   - {fileID: 1704915468}
-  - {fileID: 218001187}
-  - {fileID: 1778389765}
-  - {fileID: 524820613}
   m_Father: {fileID: 2091083560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1976,6 +1979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 937980244}
   sortingLayerName: Clothing
+  priorityOrder: 10
 --- !u!61 &1431900992
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2144,7 +2148,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533149783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5.22, y: 2.41, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2169,6 +2173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 1068212898}
   sortingLayerName: Clothing
+  priorityOrder: 15
 --- !u!61 &1533149786
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2562,6 +2567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 222004902}
   sortingLayerName: Clothing
+  priorityOrder: 15
 --- !u!61 &1704915470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2724,6 +2730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 1087589642}
   sortingLayerName: Clothing
+  priorityOrder: 10
 --- !u!61 &1778389767
 BoxCollider2D:
   m_ObjectHideFlags: 0
